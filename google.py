@@ -11,6 +11,7 @@ for l in lett:
     cars = int(inputs[3])
     points = int(inputs[4])
 	
+	
     streetDic = {}
     numStreet = {}
     interDic = {}
