@@ -1,36 +1,21 @@
-import collections
-
-
-
-
-
-
-#6 4 5 2 1000
-#2 0 rue-de-londres 1
-#0 1 rue-d-amsterdam 1
-#3 1 rue-d-athenes 1
-#2 3 rue-de-rome 2
-#1 2 rue-de-moscou 3
-#4 rue-de-londres rue-d-amsterdam rue-de-moscou rue-de-rome
-#3 rue-d-athenes rue-de-moscou rue-de-londres
 lett = ["b", "c", "d", "e", "f"]
 for l in lett:
+
     file1 = open(l + ".txt", "r")
     Lines = file1.readlines()
     inputs = Lines[0].split()
-
-    streetDic = {}
-    numStreet = {}
-    interDic = {}
-    carsStartAt = {}
-    carsList = []
-
 
     seconds = int(inputs[0])
     intersections = int(inputs[1])
     streets = int(inputs[2])
     cars = int(inputs[3])
     points = int(inputs[4])
+	
+	streetDic = {}
+    numStreet = {}
+    interDic = {}
+    carsStartAt = {}
+    carsList = []
 
     for i in range(streets):
         input = Lines[i+1]
@@ -85,11 +70,6 @@ for l in lett:
         temp = interDic[streetDic[streetInDic][1]]
         temp[streetInDic] = temp[streetInDic] + numStreet[streetInDic]
 
-    #print (numStreet)
-    #print(streetDic)
-    #print(interDic)
-
-
 
     outputList = []
     for inter in interDic.keys():
@@ -123,8 +103,6 @@ for l in lett:
 
     def output(pList):
         f = open(l +"output.txt", "w+")
-        # num of intersections
-
         f.write(str(len(pList)) + "\n")
         for i in range(len(pList)):
             f.write(str(outputList[i][0]))
@@ -136,11 +114,6 @@ for l in lett:
                 f.write(str(outputList[i][2][j][0]) + " ")
                 f.write(str(outputList[i][2][j][1]))
                 f.write("\n")
-            #f.write("\n")
         f.close()
 
     output(outputList)
-
-    #print(carsStartAt)
-    #print(outputList)
-
